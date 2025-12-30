@@ -20,17 +20,25 @@ jobs:
           distribution: 'temurin'
 
       - name: Build User Service
-        working-directory: user-service/user-service
-        run: mvn clean package -DskipTests
+        run: |
+          echo "===== BUILDING USER SERVICE ====="
+          cd user-service/user-service
+          mvn clean package -DskipTests
 
       - name: Build Task Service
-        working-directory: task-service/task-service
-        run: mvn clean package -DskipTests
+        run: |
+          echo "===== BUILDING TASK SERVICE ====="
+          cd task-service/task-service
+          mvn clean package -DskipTests
 
       - name: Build User Service Docker Image
-        working-directory: user-service/user-service
-        run: docker build -t user-service:ci .
+        run: |
+          echo "===== BUILDING USER SERVICE DOCKER IMAGE ====="
+          cd user-service/user-service
+          docker build -t user-service:ci .
 
       - name: Build Task Service Docker Image
-        working-directory: task-service/task-service
-        run: docker build -t task-service:ci .
+        run: |
+          echo "===== BUILDING TASK SERVICE DOCKER IMAGE ====="
+          cd task-service/task-service
+          docker build -t task-service:ci .
