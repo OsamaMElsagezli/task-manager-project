@@ -8,7 +8,7 @@ The system is composed of two main services:
 - **User Service**
 - **Task Service**
 
-Each service is independently deployable and containerized.
+Each service is independently deployable and containerized
 
 ---
 
